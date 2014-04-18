@@ -1,0 +1,732 @@
+undefined<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#"  xmlns:og="http://opengraphprotocol.org/schema/" xlmns:event_ticketing="http://www.securemytix.com/2011/event_ticketing">
+<!--
+Generated: Thu, 17 Apr 2014 21:54:02 -0400
+Req ID: U1CFulnTYYKmFFA
+Host: exc-app-server6
+
+-->
+
+    <head>
+        <meta name="description" content="Sell tickets online to your events with ReedPOP web-based ticketing solutions. Our online ticketing software and event registration solutions can be used to sell tickets online, over the telephone and at your box office." />
+        <meta name="verify-v1" content="iIKExp1ignJ7FqP4Wm5aoYQR8dB7lMBQEb9RGkhgYkc=" />
+        <meta http-equiv="Content-Language" content="en-us" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <link rel="icon" href="/assets/partners/showclix/images/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="/assets/partners/showclix/images/favicon.ico" />
+
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+        <!-- Open Graph -->
+        
+        
+        <title>Upcoming Events & Tickets</title>
+
+        <!-- CSS (NEW) -->
+                    <link rel="stylesheet" type="text/css" href="/assets/partners/showclix/events/embed.css" />        
+        <link rel="stylesheet" type="text/css" href="/scheme/6911.css" />
+        <!-- Output scripts -->
+                                    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js?new=new"></script>                            <script type="text/javascript" src="https://s3.amazonaws.com/sc-js/thickbox-compressed.js?new=new?new=new"></script>                            <script type="text/javascript" src="https://s3.amazonaws.com/sc-js/jquery.colorbox-min.js?new=new"></script>                            <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>        <script type="text/javascript" src="/js/modernizr.min.js"></script>        <script type="text/javascript" src="/js/jquery.modal.js"></script>
+        
+        
+
+        <script type="text/javascript">
+            // <!-- Google Analytics -->
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-41980729-2');
+                        ga(function() {
+                var allTrackers = ga.getAll();
+                for(var i in allTrackers) {
+                    allTrackers[i].send('pageview');
+                }
+            });
+
+                    </script>
+
+        
+        <script type="text/javascript">
+
+            var runOptions = {
+                maxWidth: 500,
+                maxHeight: 600,
+                fitViewport: true,
+                closeText: 'close: x'
+            }
+
+            var runModal = new $.Modal('mymodal', runOptions);
+
+            var myModal = {
+                // For hidden objects that require cloning
+                inlineClone : function (obj, callback) {
+                    options = {
+                        afterOpen: function() {
+                            callback && callback();
+                        }
+                    }
+                    runModal.open(obj.clone().show(), options);
+                    return false;
+                },
+                inline: function (obj, callback) {
+                    options = {
+                        afterOpen: function() {
+                            callback && callback();
+                        }
+                    }
+                    runModal.open(obj, options);
+                    return false;
+                },
+                iframe: function (obj, callback) {
+
+                    options = {
+                        afterOpen: callback || function(){},
+                        afterClose: function () {
+                            $('.mymodal-content').empty();
+                        }
+                    }
+
+                    var href = $(obj).attr('href') || $(obj).attr('src') || (typeof obj == 'string' ? obj : 'about:blank');
+
+                    var $div;
+                    if (href[0] == '#') {
+                        $div = $(href).clone();
+                        runModal.open($div, options);
+                    } else {
+                        $div = $('<div />');
+                        if(/(jpe?g|png|gif)$/i.exec(href)) {
+                            $div.append($('<img id="modalImage" src="' + href + '" />'));
+                            runModal.open($div, options);
+                            $('#modalImage').load(function(){runModal.refresh();});
+                        } else {
+                            $div.load(href, function(){
+                                runModal.open($div, options);
+                            });
+                        }
+                    }
+
+                    return false;
+                },
+                close : function () {
+                    runModal.close(true);
+                },
+                refresh : function () {
+                    runModal.refresh()
+                }
+            }
+
+            var updateParentHeight = function() {
+                window.parent.postMessage($('body').outerHeight(true), '*');
+            };
+
+            $(function() {
+                //so listing colorboxes are an option
+                if($.colorbox) {
+                    $('.listing_desc a.colorbox').colorbox({iframe:true,width:'75%',height:'600px'});
+                }
+            });
+
+        </script>
+
+        <script type="text/javascript">
+            $(function(){
+                // Confirm Request to Cancel Tickets
+                $('#continue_request').live('click',function(){
+                    $('#loading').show();
+                    $('#cancel_reservation_form').submit();
+                    return false;
+                });
+                // Cancel Request to Cancel Tickets
+                $('#cancel_request').live('click',function(){
+                    myModal.close();
+                    return false;
+                });
+
+                var warn_about_clearing = $('#warn_about_clearing').detach().show();
+
+                // Cancel Request Btn
+                $('.cancel_res, #cancel_reservation').click(function(ev) {
+                    ev.preventDefault();
+                    myModal.inline(warn_about_clearing);
+                    return false;
+                });
+            });
+        </script>
+    </head>
+
+    <!--[if lt IE 7]><body class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+    <!--[if IE 7]><body class="lt-ie9 lt-ie8"><![endif]-->
+    <!--[if IE 8]><body class="lt-ie9"><![endif]-->
+    <!--[if gt IE 8]><!--> <body> <!--<![endif]-->
+
+        
+        <nav>
+                                                <!-- TODO: Needs hide_nav_bar setting check... -->
+                            <section id="nav_logo">
+                                        <a href="/" class="desktop">showclix</a>
+                </section>
+                                </nav>
+
+        <div id="nav_cart_details">
+            
+            <ul id="order_stats">
+                                    <li class="tab_service_fee">Service Fee: <strong id="tab_service_fee">$0.00</strong></li>
+                                    <li class="tab_delivery_fee">Delivery Fee: <strong id="tab_delivery_fee">$0.00</strong></li>
+                            </ul>
+            <ul id="order_stats_total">
+                <li>Total <strong>$0.00</strong></li>
+            </ul>
+            <div id="order_stats_buttons">
+                <a href="#" class="checkout_btn">Checkout</a>
+                <a href="#" class="cancel_res" id="cancel_reservation">Trouble with your order? <span style="color:#B82F31">Cancel my order</span></a>
+            </div>
+        </div>
+
+
+        
+        
+
+        <header>
+                                                        <img src="//sc-schemes.s3.amazonaws.com/6911/header_image.png" alt="Upcoming Events & Tickets" />
+                                        </header>
+
+        <article>
+            <!-- Errors -->
+
+<div id="upcoming_events_header">
+    <div class="left">Choose an event below to continue</div>
+    <div class="right">
+        <ul>
+            <li id="calendar-view-btn" ></li>
+            <li id="list-view-btn" class="selected"></li>
+        </ul>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+var events_by_month = {};
+var upcoming_events = [{"event_id":"3817350","title":"PAX Dev 2014","date_title":"Wed. Aug 27, 2014 at 11:00am - Thu. Aug 28, 2014 at 6:00pm","time_title":"11:00am","category_id":"4","image_url":null,"listing_url":"https:\/\/www.showclix.com\/event\/3817350","is_recurring_model":false,"is_registration":false,"hide_ticket_date_and_time":false,"date_title_hide":"Wed. Aug 27, 2014 at 11:00am - Thu. Aug 28, 2014 at 6:00pm","month_row":"Aug","day_row":"27","has_conflicting_venues":false,"venue_name":"Seattle Westin Hotel","venue_city_state":"Seattle, WA","show_venue_info":true,"price_range":["$229.00","$279.00"],"sold_out":false,"age_limit":"18 and Over","color_scheme_id":"8958","event_start":"2014-08-27 11:00:00","event_end":"2014-08-28 18:00:00"}];
+var color_schemes = {};
+var url_target = window.top!=window.self && !document.cookie.length ? '_parent' : '_self';
+
+//i apologize
+var ajaxing = {};
+var curcalwaiting;
+
+function ajaxEvents(full_year,month,months) {
+    var preload_date = new Date(+full_year, +month-1, 1);
+    var preloadyyyymm = preload_date.getFullYear() +'-'+ ('0'+(+preload_date.getMonth()+1)).substr(-2);
+    if (!events_by_month[preloadyyyymm] && !ajaxing[preloadyyyymm]) {
+        var preloadinitial = preloadyyyymm + '-01';
+        preload_date.setMonth(preload_date.getMonth()+months);
+        preload_date.setSeconds(-1);
+        var preloadend = preload_date.getFullYear() +'-'+ ('0'+(+preload_date.getMonth()+1)).substr(-2) + '-'+ ('0'+(preload_date.getDate())).substr(-2)
+        ajaxing[preloadyyyymm] = 1;
+        $.getJSON('/events/16886/'+preloadinitial+'/'+preloadend+'.json',
+           function(data) {
+                ajaxing[preloadyyyymm] = undefined;
+                for(var x in data['events_by_month']) {
+                    events_by_month[x] = data['events_by_month'][x];
+                }
+                for(var x in data['color_schemes']) {
+                    color_schemes[x] = data['color_schemes'][x];
+                }
+                if(!events_by_month[preloadyyyymm]) {
+                    events_by_month[preloadyyyymm] = {};
+                }
+                if(curcalwaiting == preloadyyyymm) {
+                    showMonth(preload_date.getFullYear(),preload_date.getMonth()+1);
+                }
+           });
+    }
+}
+
+function showMonth(full_year, month) {
+    var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var weekdays = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+    var yyyymm = full_year +'-'+ ('0'+month).substr(-2);
+
+    ajaxEvents(+full_year,(+month),1);
+    //preload 2 months out
+    ajaxEvents(+full_year,(+month)+2,1);
+
+    if(ajaxing[yyyymm]) {
+        $('#calendar tbody').replaceWith('<tbody><tr><td colspan="7" style="text-align:center;vertical-align:middle">Loading</td></tr></tbody>');
+        curcalwaiting = yyyymm;
+        return;
+    }
+
+    if (!events_by_month[yyyymm]) {
+        events_by_month[yyyymm] = {};
+    }
+
+    if (!events_by_month[yyyymm]['tbody']) {
+        var today = new Date();
+        today.setHours(0,0,0,0);
+        // move to nearest sunday before the 1st of the month
+        var cur_date = new Date(full_year, month-1, 1);
+        cur_date.setDate(1-cur_date.getDay());
+        var tr;
+        var week = 1;
+        var week_start, cur_date;
+        var tbody = $('<tbody />');
+        do {
+            tr = $('<tr />').attr('data-week',week);
+            $.each(weekdays, function(i,weekday) {
+                var td = $('<td />').attr('headers',weekdays[i]);
+                var yyyymm = cur_date.getFullYear() +'-'+ ('0'+(cur_date.getMonth()+1)).substr(-2);
+                var dd = ('0'+cur_date.getDate()).substr(-2);
+                var yyyymmdd = yyyymm+'-'+dd;
+                var a = $('<a />');
+                var time = $('<time />').attr('datetime',yyyymmdd).html(cur_date.getDate());
+                td.append(time);
+                td.attr('id','td-'+yyyymmdd);
+                if (cur_date.getMonth()+1 != month) {
+                    td.addClass('not-in-month');
+                }
+                if (cur_date < today) {
+                    td.addClass('past-date');
+                }
+                if (+cur_date == +today) {
+                    td.addClass('today');
+                }
+
+                var ul = $('<ul />');
+                if (events_by_month[yyyymm] && events_by_month[yyyymm]['dates'] && events_by_month[yyyymm]['dates'][dd]) {
+                    td.addClass('has-events');
+                    $.each(events_by_month[yyyymm]['dates'][dd],function(i,e) {
+                        var li = $('<li />');
+                        var a = $('<a />').attr('href',e.listing_url).attr('target',url_target);
+                            if(e.sold_out) a.append($('<span>Sold Out</span>').addClass('sold_out'));
+                            a.append($('<time />').html(e.time_title));
+                            a.append($('<h3 />').html(e.title));
+                        var details = $('<div />').addClass('event-details');
+                        var details_header = $('<div />').addClass('event-details-header');
+                            details_header.append($('<img />').attr('src',e.image_url).attr('alt',e.title));
+                            details_header.append($('<h4 />').html(e.title));
+                            details_header.append($('<time />').html(e.date_title));
+                        details.append(details_header);
+                        var details_additional = $('<div />').addClass('event-details-additional');
+                        details.append(details_additional);
+                                                    details_additional.append($('<span />').addClass('venue-name').html(e.venue_name));
+                                                if (!e.price_range.length) {
+                            details_additional.append($('<span />').addClass('price-range').html('Free'));
+                        } else {
+                            if (!(''+e.price_range[1]).length || e.price_range[0] == e.price_range[1]) {
+                                details_additional.append($('<span />').addClass('price-range').html(e.price_range[0]));
+                            }
+                            else if(!(''+e.price_range[0]).length) {
+                                details_additional.append($('<span />').addClass('price-range').html(e.price_range[1]));
+                            } else {
+                                details_additional.append($('<span />').addClass('price-range').html(e.price_range[0] + ' - ' + e.price_range[1]));
+                            }
+                        }
+                        details_additional.append($('<span />').addClass('age-limit').html(e.age_limit));
+                        a.append(details);
+                                                    li.addClass('event-type-'+e.category_id);
+                                                li.append(a);
+                        ul.append(li);
+                    });
+
+                }
+                td.append(ul);
+
+                tr.append(td);
+                cur_date.setDate(cur_date.getDate()+1);
+            });
+            tbody.append(tr);
+            week++;
+        } while (cur_date.getMonth() < month && cur_date.getFullYear() <= full_year);
+        events_by_month[yyyymm]['tbody'] = tbody;
+    }
+
+    $('#calendar caption time').attr('datetime',yyyymm).text(months[month-1]+' '+full_year);
+    var prev_month = new Date(full_year, month-2, 1);
+    $('#calendar caption .prev-month').attr({
+        'data-year':prev_month.getFullYear(),
+        'data-month':1+prev_month.getMonth()
+    });
+    var next_month = new Date(full_year, month, 1);
+    $('#calendar caption .next-month').attr({
+        'data-year':next_month.getFullYear(),
+        'data-month':1+next_month.getMonth()
+    });
+
+    $('#calendar tbody').replaceWith(events_by_month[yyyymm]['tbody']);
+    addHoverTips();
+}
+
+function showList(series_base_only, /*optional*/ start_yyyymmdd, /*optional*/ end_yyyymmdd) {
+    series_base_only = !!series_base_only;
+    if (typeof start_yyyymmdd == 'undefined') {
+        var now = new Date();
+        var yyyy = now.getFullYear();
+        var mm = 1+now.getMonth(); if (mm < 10) mm = "0"+mm;
+        var dd = now.getDate(); if (dd < 10) dd = "0"+dd;
+        start_yyyymmdd = yyyy+"-"+mm+"-"+dd;
+        if (typeof end_yyyymmdd == 'undefined') {
+            end_yyyymmdd = '9999-12-31';
+        }
+    }
+    if (typeof end_yyyymmdd == 'undefined') {
+        end_yyyymmdd = start_yyyymmdd + ' 23:59:59';
+    }
+
+    var ul = $('#upcoming_events_list ul');
+    ul.empty();
+    if (series_base_only) {
+        $.each(upcoming_events, function(event_id, event) {
+            var event_end = event['event_end'];
+            if (!event_end || event_end == '0000-00-00 00:00:00')
+                event_end = event['event_start'];
+            if (event['event_start'] < end_yyyymmdd && event_end > start_yyyymmdd) {
+                ul.append(buildListEvent(event));
+            }
+        });
+    } else {
+        $.each(events_by_month, function(yyyymm,events_yyyymm) {
+            if (!events_yyyymm['dates']) {
+                return;
+            }
+            $.each(events_yyyymm['dates'], function(dd,events) {
+                var yyyymmdd = yyyymm+'-'+dd;
+                if (start_yyyymmdd <= yyyymmdd && yyyymmdd <= end_yyyymmdd) {
+                    $.each(events, function(i,event) {
+                        ul.append(buildListEvent(event));
+                    });
+                };
+            });
+        });
+    }
+}
+
+function buildListEvent(event) {
+    var li = $('<li />');
+    var date_time_block = $('<div />').addClass('date_time_block');
+    var date_block = $('<div />').addClass('date_block');
+        if (event['is_recurring_model']) {
+            date_block.append($('<span class="day_row recurring"><span>&#xf109;</span></span>'));
+        } else {
+            if (!event['hide_ticket_date_and_time']) {
+                date_block.append($('<span />').addClass('month_row').text(event['month_row']));
+                date_block.append($('<span />').addClass('day_row').text(event['day_row']));
+            } else {
+                date_block.append($('<span />').addClass('day_row recurring').append($('<span />').html('&#xe669;')));
+            }
+        }
+    date_time_block.append(date_block);
+        var event_image;
+        if (event.image_url) {
+            event_image = $('<div />').addClass('event_image').css({'background-image':'url('+event.image_url+')'});
+        }
+        else {
+            event_image = $('<div />').addClass('event_icon event_type_'+event.category_id);
+        }
+    date_time_block.append(event_image);
+    li.append(date_time_block);
+    var event_info = $('<p />').addClass('event_info');
+        var listing_link = $('<a />').attr('href',event.listing_url).attr('target',url_target);
+                    listing_link.addClass('row-valign-middle');
+                listing_link.html(event['title'] + (event['is_recurring_model']?' <span class="date">Multiple Dates</span>':'') + '<span class="time"> &nbsp;' + event.time_title + ' </span>');
+        if (!event['price_range'] || !event['price_range'].length) {
+            listing_link.find('span').prepend($('<strong>Free</strong>'));
+        } else {
+            if (!(''+event['price_range'][1]).length || event['price_range'][0] == event['price_range'][1]) {
+                listing_link.find('span.time').prepend($('<strong />').text(event['price_range'][0]));
+            } else if(!(''+event['price_range'][0]).length) {
+                listing_link.find('span.time').prepend($('<strong />').text(event['price_range'][1]));
+            } else {
+                listing_link.find('span.time').prepend($('<strong />').text(' ' + event['price_range'][0] + ' - ' + event['price_range'][1]));
+            }
+        }
+        event_info.append(listing_link);
+                    if (event['show_venue_info']) {
+                if (event['has_conflicting_venues']) {
+                    listing_link.prepend($('<em>Various Locations</em>'));
+                } else {
+                    listing_link.prepend($('<em />').text(event['venue_name']+' in '+event['venue_city_state']));
+                }
+            }
+            li.append(event_info);
+    var event_button_wrapper = $('<div />').addClass('event-button-wrapper');
+        event_button_wrapper.append($('<a />').attr('target',url_target).attr('href',event['listing_url']+'').text((event['price_range'] && event['price_range'][1])?'Buy Tickets':'Get Tickets'));
+    li.append(event_button_wrapper);
+    return li;
+}
+
+$(function() {
+    $('.prev-month, .next-month').click(function() {
+        showMonth($(this).attr('data-year'),$(this).attr('data-month'));
+    });
+
+    var now = new Date();
+    var thisMonth = now.getFullYear() + '-' + ('0'+(now.getMonth()+1)).substr(-2);
+    var months = [],month,found = false;
+    for(var i in events_by_month) {
+        if(events_by_month.hasOwnProperty(i))
+            months.push(i);
+    }
+    months.sort();
+    while(month = months.shift()) {
+        if(month >= thisMonth) {
+            var info = month.split('-');
+            found = true;
+            showMonth(info[0],info[1]);
+            break;
+        }
+    }
+    if(!found) showMonth(now.getFullYear(), now.getMonth()+1);
+    showList(true);
+})
+</script>
+
+<div id="upcoming_events_calendar">
+
+    <table caption="" summary="" id="calendar" class="event-type-on"> <!-- //  class="event-type-on" -->
+        <caption>
+            <a href="#" class="prev-month"></a>
+            <time datetime="2013-01">Loading Calendar</time>
+            <a href="#" class="next-month"></a>
+        </caption>
+        <thead>
+            <tr>
+                <th id="sunday"    scope="col">sun</th>
+                <th id="monday"    scope="col">mon</th>
+                <th id="tuesday"   scope="col">tue</th>
+                <th id="wednesday" scope="col">wed</th>
+                <th id="thursday"  scope="col">thu</th>
+                <th id="friday"    scope="col">fri</th>
+                <th id="saturday"  scope="col">sat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-week="1">
+                <td id="" headers="sunday" class="not-in-month past-date">
+                    <time datetime="2012-12-31">31</time>
+                </td>
+                <td id="" headers="monday" class="past-date">
+                    <time datetime="2013-01-01">1</time>
+                </td>
+                <td id="" headers="tuesday" class="past-date">
+                    <time datetime="2013-01-02">2</time>
+                </td>
+                <td id="" headers="wednesday" class="past-date">
+                    <time datetime="2013-01-03">3</time>
+                </td>
+                <td id="" headers="thursday" class="past-date">
+                    <time datetime="2013-01-04">4</time>
+                </td>
+                <td id="" headers="friday" class="today">
+                    <time datetime="2013-01-05">5</time>
+                </td>
+                <td id="" headers="saturday">
+                    <time datetime="2013-01-06">6</time>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div id="upcoming_events_list" style="display:none">
+    <ul id="upcoming_events">
+    </ul>
+    <div class="clearfix"></div>
+</div>
+
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script><script type="text/javascript" src="/js/jquery.qtip.min.js"></script>
+<!-- Responsive Polyfill for IE6-8 -->
+
+<!--[if lt IE 9]>
+    <script type="text/javascript" src="/js/respond.src.js"></script><![endif]-->
+
+
+<script type="text/javascript">
+
+    var listSwitch = {
+        init : function () {
+            $('#calendar-view-btn').live('click', function () {
+                listSwitch.showCalendar();
+            });
+            $('#list-view-btn').live('click', function () {
+                showList(true);
+                listSwitch.showList();
+            });
+        },
+        showList : function () { // Hide Calendar
+            $('#upcoming_events_calendar').hide();
+            $('#upcoming_events_list').show();
+            $('#list-view-btn').addClass('selected');
+            $('#calendar-view-btn').removeClass('selected');
+            updateParentHeight();
+        },
+        showCalendar : function () { // Hide List
+            $('#upcoming_events_calendar').show();
+            $('#upcoming_events_list').hide();
+            $('#calendar-view-btn').addClass('selected');
+            $('#list-view-btn').removeClass('selected');
+            updateParentHeight();
+        }
+    };
+
+    function addHoverTips() {
+        // Hover Tips
+        var hoverOptions = {
+            content : {
+                text : function(api) {
+                    return $(this).find('.event-details').clone();
+                }
+            },
+            position: {
+                target : 'mouse',
+                viewport: $(window),
+                adjust: {
+                    x: 10, y: 10
+                },
+                hide: {
+                    fixed: true
+                }
+            }
+        };
+        // Init if day has events && event has extra details
+        $('.has-events ul li[class^="event"]').has('.event-details').qtip(hoverOptions);
+    }
+
+    $(function(){
+        // Calendar Switch Functionality
+        // ------------------------------
+        // Call listSwitch.showCalendar(); or listSwitch.showList();
+        // to maneuver independantly of buton
+        listSwitch.init();
+        var now = new Date();
+        //initially loads this month on the line if(!found) showMonth(...)
+        ajaxEvents(now.getFullYear(), now.getMonth(),3);
+          // Clickable List Rows
+        $('#upcoming_events li').live('click',function(){
+            var href = $(this).find('a').attr('href');
+            if (href) {
+                if(window.top!=window.self && !document.cookie.length) {
+                    top.window.location.href = href;
+                } else {
+                    window.location = href;
+                }
+            }
+            return false;
+        });
+
+        $('#calendar td.has-events time').live('click',function() {
+            showList(false,$(this).attr('datetime'));
+            listSwitch.showList();
+        });
+
+                    listSwitch.showList();
+        
+
+        addHoverTips();
+    });
+
+</script>
+        </article>
+
+        <!-- Footer -->
+        <footer>
+
+            <div class="footer_wrap">
+
+                <div class="bottom_bar">
+                    <div class="bottom_left">
+                        <a href="/" title="ReedPOP" class="bottom_logo">
+                            showclix                        </a>
+                    </div>
+
+                    <ul class="footer_links">
+                                                        <li><a href="/contact" target="_blank">Support</a></li>
+                                                                                    <li><a href="/tos/seller/16886" target="_blank">Terms of Service</a></li>
+                                                                                    <li><a href="/privacy" target="_blank">Privacy Policy</a></li>
+                                            </ul>
+
+                </div>
+
+                <div id="sub_foot">
+                    <div id="sub_foot_wrap">
+                        <a href="/" title="ReedPOP" class="bottom_logo_mobile">
+                            showclix                        </a>
+                        <div style="clear:both"></div>
+                                                    <span id="copyright">
+                                &copy; 2014 ReedPOP. All rights reserved.                            </span>
+                                                                    </div>
+                </div>
+
+            </div><!-- End Footer -->
+            
+
+        </footer>
+
+        <script src="/js/jquery.placeholder.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+
+        $(function() {
+
+            // Placeholder Text
+            if ($('input[placeholder], textarea[placeholder]').length != 0)
+                $('input[placeholder], textarea[placeholder]').placeholder();
+
+            var updateFloater = {
+                overlay : $('#nav_cart_overlay'),
+                box : $('#nav_cart_details'),
+                init : function (arg) {
+
+                    clearTimeout(updateFloater.timeout);
+
+                    !arg ? $('body').append($('<div id="nav_cart_overlay"></div>')) : null;
+
+                    updateFloater.box.show().stop().animate({
+                        top: 50
+                    }, 1000).data('is_open' , true);
+                },
+                kill : function () {
+
+                    clearTimeout(updateFloater.timeout);
+
+                    $('#nav_cart_overlay').remove();
+                    updateFloater.box.show().stop().animate({
+                        top: -updateFloater.box.height()
+                    }, 1000).data('is_open' , null);
+                },
+                highlight : function (elm) {
+                    updateFloater.init(true);
+                    setTimeout(updateFloater.timeout, 3500);
+
+                    elm ? $('.' + elm).stop().animate({backgroundColor : '#FBF9EA'}, 2000) : null;
+                },
+                timeout : function () { updateFloater.kill() }
+            }
+
+            $('#nav_cart_button, #nav_cart_overlay').live('click', function () {
+               $('#nav_cart_details').data('is_open') ? updateFloater.kill() : updateFloater.init();
+            });
+
+            // Really really really hacky fix to hide an iframe
+            // If you use about:blank anywhere, this is what is breaking it.
+            $('iframe[src="about:blank"]').css('position', 'absolute');
+
+        });
+
+        //fix chrome 33 font load issue
+        $(function(){
+            setTimeout(function(){
+                $('body').css('font-size','100%');
+            },200);
+        });
+        </script>
+    </body>
+</html>

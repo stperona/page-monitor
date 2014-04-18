@@ -1,9 +1,14 @@
 {
-  "name": "hello-world",
-  "description": "hello world test app",
+  "name": "PageMonitor",
+  "description": "Small app to monitor changes in a web page",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "express": "4.x"
+    "diff": "*",
+    "escape-html": "*",
+    "nodemailer": "^0.6.3",
+    "htmlparser2": "^3.7.1",
+    "soupselect": "^0.2.0",
+    "domutils": "^1.5.0"
   }
 }
